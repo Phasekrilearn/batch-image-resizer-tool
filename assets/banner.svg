@@ -1,0 +1,93 @@
+<svg viewBox="0 0 1200 360" width="1200" height="360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1420"/>
+      <stop offset="55%" stop-color="#151b2e"/>
+      <stop offset="100%" stop-color="#1b1030"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38e0d5"/>
+      <stop offset="100%" stop-color="#8a5cf6"/>
+    </linearGradient>
+    <linearGradient id="imgA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2ee0d0"/>
+      <stop offset="100%" stop-color="#1a8fbd"/>
+    </linearGradient>
+    <linearGradient id="imgB" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9b6bff"/>
+      <stop offset="100%" stop-color="#5b3ec9"/>
+    </linearGradient>
+    <linearGradient id="imgC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff9b6b"/>
+      <stop offset="100%" stop-color="#e0546a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38e0d5" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#38e0d5" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="360" fill="url(#bg)"/>
+
+  <circle cx="920" cy="150" r="240" fill="url(#glow)"/>
+
+  <!-- faint grid backdrop -->
+  <g stroke="#2c3350" stroke-width="1" opacity="0.35">
+    <line x1="60" y1="40" x2="60" y2="320"/>
+    <line x1="180" y1="40" x2="180" y2="320"/>
+    <line x1="300" y1="40" x2="300" y2="320"/>
+    <line x1="40" y1="60" x2="1160" y2="60"/>
+    <line x1="40" y1="300" x2="1160" y2="300"/>
+  </g>
+
+  <!-- decorative image stack transitioning small->large (batch resize concept) -->
+  <g opacity="0.95">
+    <!-- small thumbnails cascading in -->
+    <rect x="700" y="70" width="34" height="26" rx="3" fill="url(#imgA)"/>
+    <rect x="742" y="82" width="34" height="26" rx="3" fill="url(#imgB)" opacity="0.85"/>
+    <rect x="700" y="106" width="34" height="26" rx="3" fill="url(#imgC)" opacity="0.7"/>
+
+    <!-- mid sized image -->
+    <rect x="800" y="60" width="90" height="68" rx="5" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.8"/>
+    <rect x="808" y="68" width="74" height="52" rx="3" fill="url(#imgA)" opacity="0.55"/>
+
+    <!-- large target image with resize handles -->
+    <rect x="940" y="60" width="180" height="150" rx="6" fill="#131a2b" stroke="url(#accent)" stroke-width="2.5"/>
+    <rect x="952" y="72" width="156" height="126" rx="4" fill="url(#imgB)" opacity="0.28"/>
+    <polygon points="975,180 1035,110 1075,140 1105,95 1140,175 975,175" fill="url(#imgA)" opacity="0.5"/>
+    <circle cx="1000" cy="100" r="12" fill="#ffe27a" opacity="0.85"/>
+
+    <!-- resize corner handles -->
+    <g stroke="#38e0d5" stroke-width="2.5" stroke-linecap="round">
+      <path d="M940 60 L940 78 M940 60 L958 60"/>
+      <path d="M1120 60 L1120 78 M1120 60 L1102 60"/>
+      <path d="M940 210 L940 192 M940 210 L958 210"/>
+      <path d="M1120 210 L1120 192 M1120 210 L1102 210"/>
+    </g>
+
+    <!-- scaling arrow indicating growth -->
+    <path d="M792 200 C 850 240, 900 240, 935 205" fill="none" stroke="url(#accent)" stroke-width="2.5" stroke-dasharray="6 6" opacity="0.7"/>
+    <polygon points="935,205 922,198 926,212" fill="#8a5cf6" opacity="0.8"/>
+  </g>
+
+  <!-- subtle grouped batch dots -->
+  <g fill="#38e0d5" opacity="0.55">
+    <circle cx="690" cy="240" r="4"/>
+    <circle cx="710" cy="240" r="4"/>
+    <circle cx="730" cy="240" r="4"/>
+  </g>
+
+  <!-- headline -->
+  <text x="60" y="168" font-family="'Segoe UI', Arial, sans-serif" font-size="72" font-weight="700" fill="#f4f7fb">
+    <tspan x="60" y="168" textLength="620" lengthAdjust="spacingAndGlyphs">Batch Image</tspan>
+    <tspan x="60" y="248" textLength="480" lengthAdjust="spacingAndGlyphs">Resizer</tspan>
+  </text>
+
+  <!-- accent underline -->
+  <rect x="62" y="264" width="220" height="5" rx="2.5" fill="url(#accent)"/>
+
+  <!-- tagline -->
+  <text x="60" y="300" font-family="'Segoe UI', Arial, sans-serif" font-size="24" fill="#b7c2dc">
+    <tspan textLength="700" lengthAdjust="spacingAndGlyphs">Plug batch image resizing into the Node.js ecosystem</tspan>
+  </text>
+</svg>
